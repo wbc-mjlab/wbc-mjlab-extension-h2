@@ -32,12 +32,11 @@ HOME_KEYFRAME = EntityCfg.InitialStateCfg(
   joint_vel={".*": 0.0},
 )
 
-# Collision geoms: non-visual meshes on the asset (visual geoms use contype=0).
 FULL_COLLISION = CollisionCfg(
-  geom_names_expr=(".*",),
-  condim={r".*ankle_pitch.*": 3, ".*": 1},
-  priority={r".*ankle_pitch.*": 1},
-  friction={r".*ankle_pitch.*": (0.6,)},
+  geom_names_expr=(".*_collision",),
+  condim={r"^(left|right)_foot[1-7]_collision$": 3, ".*_collision": 1},
+  priority={r"^(left|right)_foot[1-7]_collision$": 1},
+  friction={r"^(left|right)_foot[1-7]_collision$": (0.6,)},
 )
 
 

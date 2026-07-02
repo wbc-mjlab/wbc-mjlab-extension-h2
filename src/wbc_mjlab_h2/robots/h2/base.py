@@ -94,7 +94,9 @@ def h2_base_cfg() -> ManagerBasedRlEnvCfg:
   )
   cfg.events["assistive_wrench"].params["body_name"] = H2_ANCHOR_BODY_NAME
   cfg.events["pull_robot"].params["asset_cfg"].body_names = (H2_ANCHOR_BODY_NAME,)
-  cfg.events["foot_friction"].params["asset_cfg"].geom_names = r".*ankle_pitch.*"
+  cfg.events["foot_friction"].params[
+    "asset_cfg"
+  ].geom_names = r"^(left|right)_foot[1-7]_collision$"
   cfg.events["base_com"].params["asset_cfg"].body_names = (H2_ANCHOR_BODY_NAME,)
   cfg.terminations["ee_body_pos"].params["body_names"] = H2_EE_TERMINATION_BODY_NAMES
 
@@ -107,8 +109,8 @@ def h2_base_cfg() -> ManagerBasedRlEnvCfg:
     "robot", site_names=H2_FOOT_SITE_NAMES
   )
 
-  cfg.sim.nconmax = 40
-  cfg.sim.njmax = 300
+  cfg.sim.nconmax = 160
+  cfg.sim.njmax = 500
 
   cfg.viewer.body_name = H2_ANCHOR_BODY_NAME
   cfg.viewer.distance = 3.2
