@@ -1,4 +1,4 @@
-# wbc-mjlab extension — Unitree H2 (reference)
+# WBC-MJLab extension — Unitree H2
 
 Reference [wbc-mjlab](https://github.com/wbc-mjlab/wbc-mjlab) **robot extension** for Unitree H2: a separate repo that registers H2 via `register_wbc_extension` (not built into wbc-mjlab core).
 
