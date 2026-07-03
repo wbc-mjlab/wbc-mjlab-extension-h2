@@ -1,5 +1,7 @@
 # WBC-MJLab extension — Unitree H2
 
+![H2 whole-body motion tracking in mjlab](assets/h2_extension_title.png)
+
 Reference [wbc-mjlab](https://github.com/wbc-mjlab/wbc-mjlab) **robot extension** for Unitree H2: a separate repo that registers H2 via `register_wbc_extension` (not built into wbc-mjlab core).
 
 **Plug-and-play WBC.** This extension does **not** add new presets, reward retuning, or paper-specific task variants. Training uses the same shared WBC stack as G1 — `wbc_mjlab.presets.wbc.apply_wbc` — with only robot-specific wiring (MJCF, actuators, tracking bodies, sensors, data paths). Register your robot, convert motion, run `wbc-mjlab-train --task Wbc-<Robot>`: the MDP, RSI, rewards, and CLIs are unchanged.
