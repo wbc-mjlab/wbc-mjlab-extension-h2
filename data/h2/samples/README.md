@@ -3,8 +3,11 @@
 A small, **version-controlled** subset of retargeted H2 clips for smoke-testing
 convert, train, play, and `wbc-mjlab-data-vis` without downloading full datasets.
 
+**Retargeting quality.** These clips are early H2 retargets from LAFAN1 / BONES-SEED source mocap. Known artifacts include standing on toes, foot slip, and other contact quirks visible in `wbc-mjlab-data-vis`. Better retargeting and foot placement would likely improve trained policies; for now the dataset exists to **demonstrate plugging an external robot into wbc-mjlab**, not as a curated motion library.
+
 **13 clips** ship as GMR PKL in this folder (8 from LAFAN1 retargeting, 5 from
-BONES-SEED). Run conversion once to populate `npz/` (gitignored), then train or visualize:
+BONES-SEED). **NPZ is not committed** — run conversion once after clone to populate
+`npz/`, then train or visualize:
 
 ```bash
 uv run wbc-mjlab-data-to-npz --robot h2 --dataset samples
@@ -20,7 +23,8 @@ uv run wbc-mjlab-play --task Wbc-H2 --dataset samples
 data/h2/samples/
   README.md
   *.pkl              # source clips (bundled, GMR format)
-  npz/<clip>.npz     # local only — run wbc-mjlab-data-to-npz (gitignored)
+  npz/               # placeholder dir only in git — run data-to-npz locally
+  npz/<clip>.npz     # never committed (*.npz is gitignored)
 ```
 
 ## Bundled clips
@@ -85,8 +89,8 @@ dataset for terms.
 ### This repository
 
 Sample motion **files** remain under their respective dataset licenses above.
-The `wbc-mjlab-h2` **code** is Apache-2.0 (see repo root `LICENSE`).
+The `wbc-mjlab-extension-h2` **code** is Apache-2.0 (see repo root `LICENSE`).
 
 When you publish results trained on these clips, cite the original datasets in addition to
-`wbc-mjlab`, [wbc-mjlab-h2](https://github.com/wbc-mjlab/wbc-mjlab-h2), and
+`wbc-mjlab`, [wbc-mjlab-extension-h2](https://github.com/wbc-mjlab/wbc-mjlab-extension-h2), and
 [mjlab](https://github.com/mujocolab/mjlab).

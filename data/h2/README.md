@@ -5,17 +5,21 @@ Place retargeted clips under **`data/h2/<dataset>/`** in this repo (not under wb
 
 ```
 data/h2/<dataset>/
-  *.pkl / *.csv      # source clips (or under raw/)
-  npz/<clip>.npz     # per-clip FK exports (training source of truth; gitignored)
+  *.pkl / *.csv      # source clips (version-controlled, or under raw/)
+  npz/<clip>.npz     # per-clip FK exports — local only, never committed
   <dataset>.npz      # optional stacked cache (--cache-motion-bundle)
 ```
 
+Only source clips and READMEs are version-controlled. After clone, run `wbc-mjlab-data-to-npz` before train, play, or vis.
+
 ## Bundled samples
 
-[`samples/`](samples/) ships **13 GMR PKL clips** (LAFAN1 + BONES-SEED retargets) for convert / train / play / vis smoke tests. See [samples/README.md](samples/README.md) for the clip list and credits.
+[`samples/`](samples/) ships **13 GMR PKL clips** (LAFAN1 + BONES-SEED retargets). See [samples/README.md](samples/README.md) for the clip list and credits.
 
 ```bash
+# Required once per clone (or after adding new PKL)
 uv run wbc-mjlab-data-to-npz --robot h2 --dataset samples
+
 uv run wbc-mjlab-data-vis --robot h2 --dataset samples
 uv run wbc-mjlab-train --task Wbc-H2 --dataset samples
 uv run wbc-mjlab-play --task Wbc-H2 --dataset samples
@@ -35,7 +39,7 @@ uv run wbc-mjlab-data-to-npz --robot h2 --dataset-path ./data/h2/samples
 Or with a named dataset folder:
 
 ```bash
-# from wbc-mjlab-h2 repo root — resolves data/h2/samples/ here
+# from wbc-mjlab-extension-h2 repo root — resolves data/h2/samples/ here
 uv run wbc-mjlab-data-to-npz --robot h2 --dataset samples
 ```
 

@@ -1,0 +1,2 @@
+# FK exports land here after: uv run wbc-mjlab-data-to-npz --robot h2 --dataset samples
+# *.npz is gitignored — never committed.
